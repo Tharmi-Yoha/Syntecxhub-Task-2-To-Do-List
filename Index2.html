@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Taskly — Task Manager</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="StyleSheet.css">
+</head>
+
+<body>
+
+    <main class="app">
+
+        <!-- Header -->
+        <header class="topbar">
+
+            <a href="#" class="logo">
+                <span class="logo-mark">T</span>
+
+                <span>
+                    <strong>Taskly</strong>
+                    <small>Task Manager</small>
+                </span>
+            </a>
+
+            <div class="top-actions">
+
+                <select id="languageSelect" class="language-select">
+                    <option value="en">English</option>
+                    <option value="ta">தமிழ்</option>
+                </select>
+
+                <button
+                    id="themeBtn"
+                    class="theme-btn"
+                    type="button"
+                    title="Change theme"
+                >
+                    <span id="themeIcon">☾</span>
+                </button>
+
+            </div>
+
+        </header>
+
+
+        <!-- Welcome -->
+        <section class="welcome">
+
+            <div>
+                <p class="eyebrow" id="welcomeSmall">
+                    PERSONAL PRODUCTIVITY
+                </p>
+
+                <h1 id="welcomeTitle">
+                    Organize your day.<br>
+                    <span>Get things done.</span>
+                </h1>
+
+                <p id="welcomeText">
+                    Keep your tasks simple, focused and under control.
+                </p>
+            </div>
+
+            <div class="today-box">
+                <span id="todayLabel">TODAY</span>
+                <strong id="todayDate"></strong>
+            </div>
+
+        </section>
+
+
+        <!-- Statistics -->
+        <section class="stats-grid">
+
+            <div class="stat-card">
+                <div class="stat-top">
+                    <span id="totalLabel">Total Tasks</span>
+                    <span class="stat-icon">01</span>
+                </div>
+
+                <strong id="totalTasks">0</strong>
+
+                <p id="totalDescription">All your tasks</p>
+            </div>
+
+
+            <div class="stat-card">
+                <div class="stat-top">
+                    <span id="completedLabel">Completed</span>
+                    <span class="stat-icon">02</span>
+                </div>
+
+                <strong id="completedTasks">0</strong>
+
+                <p id="completedDescription">Finished tasks</p>
+            </div>
+
+
+            <div class="stat-card">
+                <div class="stat-top">
+                    <span id="pendingLabel">Pending</span>
+                    <span class="stat-icon">03</span>
+                </div>
+
+                <strong id="pendingTasks">0</strong>
+
+                <p id="pendingDescription">Tasks remaining</p>
+            </div>
+
+
+            <div class="progress-card">
+
+                <div class="progress-heading">
+                    <span id="progressLabel">Your Progress</span>
+                    <strong id="progressPercent">0%</strong>
+                </div>
+
+                <div class="progress-bar">
+                    <span id="progressBar"></span>
+                </div>
+
+                <p id="progressText">
+                    Start completing your tasks.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- Add Task -->
+        <section class="panel add-panel">
+
+            <div class="panel-heading">
+                <div>
+                    <p class="panel-label" id="createLabel">
+                        CREATE
+                    </p>
+
+                    <h2 id="addTitle">
+                        Add a new task
+                    </h2>
+                </div>
+            </div>
+
+
+            <div class="task-form">
+
+                <div class="input-box task-input-box">
+
+                    <label for="taskInput" id="taskLabel">
+                        Task name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="taskInput"
+                        placeholder="What needs to be done?"
+                        autocomplete="off"
+                    >
+
+                </div>
+
+
+                <div class="input-box">
+
+                    <label for="taskDate" id="dateLabel">
+                        Due date
+                    </label>
+
+                    <input
+                        type="date"
+                        id="taskDate"
+                    >
+
+                </div>
+
+
+                <div class="input-box priority-box">
+
+                    <label for="taskPriority" id="priorityLabel">
+                        Priority
+                    </label>
+
+                    <select id="taskPriority">
+
+                        <option value="low">
+                            Low
+                        </option>
+
+                        <option value="medium" selected>
+                            Medium
+                        </option>
+
+                        <option value="high">
+                            High
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <button id="addBtn" class="add-btn" type="button">
+
+                    <span class="plus">+</span>
+
+                    <span id="addText">
+                        Add Task
+                    </span>
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- Task List -->
+        <section class="panel tasks-panel">
+
+            <div class="tasks-toolbar">
+
+                <div>
+                    <p class="panel-label" id="workspaceLabel">
+                        WORKSPACE
+                    </p>
+
+                    <h2 id="tasksTitle">
+                        My Tasks
+                    </h2>
+
+                    <p class="task-count" id="taskCount">
+                        0 tasks
+                    </p>
+                </div>
+
+
+                <div class="toolbar-right">
+
+                    <div class="search-box">
+
+                        <span>⌕</span>
+
+                        <input
+                            type="text"
+                            id="searchInput"
+                            placeholder="Search tasks..."
+                        >
+
+                    </div>
+
+
+                    <select id="filterSelect" class="filter-select">
+
+                        <option value="all">
+                            All
+                        </option>
+
+                        <option value="pending">
+                            Pending
+                        </option>
+
+                        <option value="completed">
+                            Completed
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <!-- Task List -->
+            <ul id="taskList"></ul>
+
+
+            <!-- Empty State -->
+            <div id="emptyMessage" class="empty-state">
+
+                <div class="empty-mark">—</div>
+
+                <h3 id="emptyTitle">
+                    No tasks yet
+                </h3>
+
+                <p id="emptyText">
+                    Add your first task and start organizing your day.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- Footer -->
+        <footer class="footer">
+
+            <span>
+                © 2026 Taskly
+            </span>
+
+            <span id="footerText">
+                Simple. Focused. Productive.
+            </span>
+
+        </footer>
+
+    </main>
+
+
+    <script src="Script2.js"></script>
+
+</body>
+</html>
